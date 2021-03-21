@@ -1,0 +1,29 @@
+<div class="col-md-6" style="padding-top: 10px;">
+  <h3 align="center">User Details</h3>
+</div><br>
+<div class="col-md-6">
+  <form #simpleform="ngForm" (ngSubmit)="createupdate()">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" name="name" [(ngModel)]="user.name" class="form-control" placeholder="Enter Your Name" required>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" name="email" [(ngModel)]="user.email" class="form-control" required placeholder="Enter Your Email">
+    </div>
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="text" name="phone" [(ngModel)]="user.phone" class="form-control" required placeholder="Enter Your Phone">
+    </div>
+    <div class="form-group">
+      <label>Work</label>
+      <input type="text" name="work" [(ngModel)]="user.work" class="form-control" required placeholder="Enter Your Work">
+    </div>
+    <div class="form-group">
+      <label>Experince</label>
+      <input type="text" name="exp" [(ngModel)]="user.exp" class="form-control" required placeholder="Enter Your Experince">
+    </div>
+
+    <input type="submit" value="submit" class="btn btn-primary" [disabled]="simpleform.invalid" >
+  </form>
+</div>

@@ -1,0 +1,40 @@
+<h3 align="center" style="padding-top: 10px;">User List</h3>
+<div class="input-group rounded col-md-3" style="float: right;">
+  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" #myInput
+  [(ngModel)]="name"
+  (ngModelChange)="Search()"
+    aria-describedby="search-addon" />
+  <span class="input-group-text border-0" id="search-addon">
+    <i class="fas fa-search"></i>
+  </span>
+</div><br><br>
+<div style="padding-top: 20px;">
+  <table class="table">
+    <thead>
+      <tr align="center">
+        <th (click)="sort('id')" scope="col">ID <i class="fas fa-sort"></i></th>
+        <th (click)="sort('id')" scope="col" scope="col">Name <i class="fas fa-sort"></i></th>
+        <th (click)="sort('id')" scope="col" scope="col">Email <i class="fas fa-sort"></i></th>
+        <th (click)="sort('id')" scope="col" scope="col">Phone <i class="fas fa-sort"></i></th>
+        <th (click)="sort('id')" scope="col" scope="col">Work <i class="fas fa-sort"></i></th>
+        <th  (click)="sort('id')" scope="col"scope="col">Experince <i class="fas fa-sort"></i></th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users | orderBy:key:reverse|paginate:{itemsPerPage:5,currentPage:p }" align="center">
+        <th scope="row">{{user._id}}</th>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.work}}</td>
+        <td>{{user.exp}}</td>
+        <td><i class="fas fa-edit" (click)="doUpdate(user)"></i>&nbsp;
+          <i class="fas fa-trash" style="color: red;" (click)="doDelete(user)"></i></td>
+      </tr>
+    </tbody>
+  </table><br><br>
+  <pagination-controls align="center" (pageChange)="p =$event"></pagination-controls>
+</div>
+
+
